@@ -13,6 +13,9 @@ public class SortingVisualizerController : MonoBehaviour
     [SerializeField] Transform[] visualizerContainers;
     [SerializeField] Color barColor;
 
+    [SerializeField] GameObject panel;
+    [SerializeField] GameObject mainPanel;
+
     private List<int> dataset;
     private int numberOfItems;
 
@@ -93,5 +96,11 @@ public class SortingVisualizerController : MonoBehaviour
                 sorter.StartSorting(new List<int>(dataset)); // Pass a copy of the dataset to each sorter
             }
         }
+    }
+
+    public void BackButton()
+    {
+        panel.SetActive(false);
+        mainPanel.SetActive(true);
     }
 }

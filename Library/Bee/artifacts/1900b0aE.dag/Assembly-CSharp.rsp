@@ -355,6 +355,7 @@
 "Assets/Scripts/Bar.cs"
 "Assets/Scripts/BubbleSortVisualizer.cs"
 "Assets/Scripts/ISortingAlgorithm.cs"
+"Assets/Scripts/MainMenu.cs"
 "Assets/Scripts/SortingVisualizerController.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs"

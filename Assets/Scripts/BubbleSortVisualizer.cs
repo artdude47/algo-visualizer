@@ -11,6 +11,10 @@ public class BubbleSortVisualizer : MonoBehaviour, ISortingAlgorithm
     public Color swappingColor = Color.yellow; // Color for bars being swapped
     public Color sortedColor = Color.green; // Color for sorted bars
 
+    private float animationSpeed = 0.2f;
+    public float slowSpeed = 2.0f;
+    public float fastSpeed = 0.2f;
+
     private List<Transform> bars; // List of bar references
     private List<int> dataset; // Dataset for sorting
 
@@ -79,7 +83,7 @@ public class BubbleSortVisualizer : MonoBehaviour, ISortingAlgorithm
                 HighlightBar(j, comparisonColor);
                 HighlightBar(j + 1, comparisonColor);
 
-                yield return new WaitForSeconds(2f); // Delay for visualization
+                yield return new WaitForSeconds(animationSpeed); // Delay for visualization
 
                 if (dataset[j] > dataset[j + 1])
                 {
@@ -127,7 +131,7 @@ public class BubbleSortVisualizer : MonoBehaviour, ISortingAlgorithm
         HighlightBar(indexA, swappingColor);
         HighlightBar(indexB, swappingColor);
 
-        yield return new WaitForSeconds(2f); // Delay to visualize swapping
+        yield return new WaitForSeconds(animationSpeed); // Delay to visualize swapping
 
         // Swap bar heights visually
         float tempHeight = barA.GetComponent<RectTransform>().sizeDelta.y;
@@ -149,7 +153,7 @@ public class BubbleSortVisualizer : MonoBehaviour, ISortingAlgorithm
         HighlightBar(indexA, defaultColor);
         HighlightBar(indexB, defaultColor);
 
-        yield return new WaitForSeconds(2f); // Delay to visualize swapping
+        yield return new WaitForSeconds(animationSpeed); // Delay to visualize swapping
 
         ResetBarsArray();
 
@@ -174,6 +178,18 @@ public class BubbleSortVisualizer : MonoBehaviour, ISortingAlgorithm
         foreach (Transform child in container)
         {
             bars.Add(child);
+        }
+    }
+
+    public void ChangeAnimationSpeed() 
+    {
+        if (animationSpeed == fastSpeed)
+        {
+            animationSpeed = slowSpeed;
+        }
+        else
+        {
+            animationSpeed = fastSpeed;
         }
     }
 }
